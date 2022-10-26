@@ -1,0 +1,196 @@
+<template>
+  <header id="headerType" :class="fongitts">
+    <!-- class="header__wrap LocusSang" -->
+    <div class="header__inner">
+      <div class="header__logo">
+        <a href="/"> web <em>site</em> </a>
+      </div>
+      <div class="header__menu">
+        <ul>
+          <li>
+            <a href="#imageType">이미지 영역</a>
+          </li>
+          <li>
+            <a href="#imgTextType">이미지/텍스트 영역</a>
+          </li>
+          <li>
+            <a href="#cardType">카드 영역</a>
+          </li>
+          <li>
+            <a href="#bannerType">배너 영역</a>
+          </li>
+          <li>
+            <a href="#textType">텍스트 영역</a>
+          </li>
+        </ul>
+      </div>
+      <div class="header__member">
+        <a href="/">로그인</a>
+      </div>
+      <div class="header__ham">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+</template>
+
+<script>
+export default {
+  props: {
+    fonts: String,
+  },
+};
+</script>
+
+<style>
+@import url("https://webfontworld.github.io/NexonLv2Gothic/NexonLv2Gothic.css");
+@import url("https://webfontworld.github.io/locus/LocusSangsang.css");
+
+.LocusSang {
+  font-family: "LocusSangsang";
+}
+
+body {
+  overflow: overlay;
+}
+
+/* headerType */
+.header__inner {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #ccc;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #fff;
+  backdrop-filter: blur(10px);
+  z-index: 10000;
+}
+.header__logo {
+  width: 20%;
+  font-size: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.header__logo em {
+  font-size: 18px;
+  font-weight: 400;
+}
+.header__menu {
+  width: 85%;
+  text-align: center;
+}
+.header__menu li {
+  display: inline;
+}
+.header__menu li a {
+  padding: 13px 28px;
+  margin: 0 5px;
+  font-size: 20px;
+  font-family: "NexonLv2Gothic";
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+.header__menu li a:hover {
+  background-color: #f1f1f1;
+  border-radius: 5px;
+}
+
+.header__member {
+  width: 20%;
+  text-align: right;
+}
+.header__member a {
+  font-size: 16px;
+  border: 1px solid #000;
+  padding: 10px 30px;
+  border-radius: 50px;
+  transition: background-color 0.3s;
+}
+.header__member a:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.header__ham {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 1000;
+  width: 50px;
+  height: 50px;
+  display: none;
+  cursor: pointer;
+}
+
+@media (max-width: 1300px) {
+  .header__menu {
+    position: fixed;
+    right: -100%;
+    top: 69px;
+    background: #fff;
+    width: 47%;
+    height: 100vh;
+    padding: 20px;
+    text-align: right;
+    transition: right 0.4s ease-in;
+  }
+  .header__menu ul li {
+    display: block;
+    margin: 20px;
+  }
+  .header__menu ul li a {
+    padding: 10px;
+    white-space: nowrap;
+  }
+  .header__menu.active {
+    right: 0;
+  }
+
+  .header__member {
+    width: 50%;
+    margin-right: 50px;
+  }
+  .header__logo {
+    width: 50%;
+  }
+  .header__ham {
+    display: block;
+  }
+  .header__ham span {
+    display: block;
+    background: #000;
+    width: 30px;
+    height: 2px;
+    border-radius: 3px;
+    margin-left: 10px;
+    margin-top: 5px;
+    transition: 0.25s margin 0.25s, transform 0.25s;
+  }
+  .header__ham span:nth-child(1) {
+    margin-top: 17px;
+  }
+  .header__ham.active span {
+    transition: 0.25s margin, 0.25s transform 0.25s;
+  }
+  .header__ham.active span:nth-child(1) {
+    margin-top: 25px;
+    margin-bottom: -7px;
+    transform: rotate(45deg);
+  }
+  .header__ham.active span:nth-child(2) {
+    transform: rotate(45deg);
+  }
+  .header__ham.active span:nth-child(3) {
+    margin-top: -2px;
+    transform: rotate(135deg);
+  }
+}
+</style>
